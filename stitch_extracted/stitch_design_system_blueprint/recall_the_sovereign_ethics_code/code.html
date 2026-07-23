@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Sovereign Ethics Code - RECALL Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline": "#747878",
+                      "surface-container-high": "#ece8e0",
+                      "tertiary-fixed-dim": "#e9c340",
+                      "inverse-primary": "#c8c6c5",
+                      "on-tertiary-fixed": "#231b00",
+                      "primary-container": "#1c1b1b",
+                      "cat-shutdown": "#1D4ED8",
+                      "cat-loss": "#7F1D1D",
+                      "error": "#ba1a1a",
+                      "error-container": "#ffdad6",
+                      "surface-tint": "#5f5e5e",
+                      "secondary-container": "#da3148",
+                      "ink-black": "#1A1A1A",
+                      "surface-container-low": "#f8f3eb",
+                      "border-tan": "#DDD8CE",
+                      "tertiary-container": "#cba724",
+                      "surface-container-highest": "#e7e2da",
+                      "tertiary-fixed": "#ffe082",
+                      "on-error": "#ffffff",
+                      "archive-gold": "#B8960C",
+                      "on-secondary-fixed": "#40000a",
+                      "on-surface": "#1d1c17",
+                      "tertiary": "#725c00",
+                      "inverse-surface": "#32302b",
+                      "press-red": "#C41E3A",
+                      "background": "#fef9f1",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "primary-fixed": "#e5e2e1",
+                      "primary": "#000000",
+                      "outline-variant": "#c4c7c7",
+                      "surface-container": "#f2ede5",
+                      "on-surface-variant": "#444748",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#564500",
+                      "inverse-on-surface": "#f5f0e8",
+                      "on-error-container": "#93000a",
+                      "cat-statement": "#6D28D9",
+                      "surface-white": "#FDFCF9",
+                      "surface-container-lowest": "#ffffff",
+                      "cat-legal": "#B45309",
+                      "cat-ground": "#065F46",
+                      "on-secondary": "#ffffff",
+                      "surface": "#fef9f1",
+                      "secondary-fixed-dim": "#ffb3b4",
+                      "status-verified": "#15803D",
+                      "surface-variant": "#e7e2da",
+                      "on-primary-fixed-variant": "#474746",
+                      "secondary": "#b71032",
+                      "on-tertiary-container": "#4d3e00",
+                      "secondary-fixed": "#ffdad9",
+                      "on-primary-container": "#858383",
+                      "surface-dim": "#ded9d2",
+                      "paper-base": "#F5F0E8",
+                      "on-secondary-fixed-variant": "#920023",
+                      "surface-bright": "#fef9f1",
+                      "on-secondary-container": "#fffbff",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "secondary-grey": "#6B6B6B",
+                      "on-background": "#1d1c17"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap": "4rem",
+                      "container-max": "1200px",
+                      "margin-mobile": "1rem",
+                      "gutter": "1.5rem",
+                      "margin-desktop": "2.5rem"
+              },
+              "fontFamily": {
+                      "subheadline": [
+                              "Merriweather"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "edition-number": [
+                              "Inter"
+                      ],
+                      "label-tag": [
+                              "Inter"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "body-text": [
+                              "Merriweather"
+                      ],
+                      "masthead-logo": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "pull-quote": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "subheadline": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "edition-number": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-tag": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "caption": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-text": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.8",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "masthead-logo": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "pull-quote": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #F5F0E8; /* fallback */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .document-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .document-grid {
+                grid-template-columns: repeat(12, 1fr);
+                gap: 0; /* reliance on strict borders */
+            }
+            .grid-col-1-3 { grid-column: 1 / 4; }
+            .grid-col-4-9 { grid-column: 4 / 10; }
+            .grid-col-10-12 { grid-column: 10 / 13; }
+        }
+        
+        .section-border {
+            border-bottom: 1px solid #DDD8CE;
+        }
+        @media (min-width: 768px) {
+            .section-border {
+                border-bottom: none;
+                border-right: 1px solid #DDD8CE;
+            }
+            .section-border:last-child {
+                border-right: none;
+            }
+        }
+        .seal-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #B8960C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="bg-paper-base text-on-surface min-h-screen flex flex-col font-body-text">
+<!-- Suppressed Navigation Context: This is a deep legal document, focusing on canvas readability. Nav omitted. -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<header class="text-center mb-16 border-b border-border-tan pb-8">
+<h1 class="font-headline-lg text-[48px] md:text-[72px] leading-tight font-black uppercase tracking-tighter text-primary mb-4" style="font-family: 'Playfair Display', serif; font-weight: 900;">
+                The Sovereign Ethics Code
+            </h1>
+<p class="font-subheadline text-subheadline text-secondary-grey uppercase tracking-widest max-w-2xl mx-auto">
+                Foundational Principles of the Permanent Archive
+            </p>
+</header>
+<div class="document-grid border-b border-border-tan pb-16">
+<!-- Context & Metadata -->
+<aside class="grid-col-1-3 section-border pr-0 md:pr-8 mb-8 md:mb-0">
+<div class="sticky top-8">
+<h2 class="font-label-tag text-label-tag text-archive-gold mb-6 uppercase tracking-widest border-b border-border-tan pb-2">Document Metadata</h2>
+<ul class="space-y-4 font-data-mono text-data-mono text-secondary-grey">
+<li>
+<span class="block text-primary font-bold">Ratified:</span>
+                            2024.11.14
+                        </li>
+<li>
+<span class="block text-primary font-bold">Classification:</span>
+                            UNRESTRICTED
+                        </li>
+<li>
+<span class="block text-primary font-bold">Authority:</span>
+                            RECALL Oversight Board
+                        </li>
+<li>
+<span class="block text-primary font-bold">Revision:</span>
+                            V.4.2
+                        </li>
+</ul>
+<div class="mt-12 p-4 bg-surface-white border border-border-tan">
+<span class="material-symbols-outlined text-cat-legal mb-2 text-3xl" data-icon="gavel" data-weight="fill">gavel</span>
+<p class="font-caption text-caption text-on-surface-variant">
+                            This document serves as the binding framework for all data acquisition, storage, and dissemination within the RECALL ecosystem.
+                        </p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<article class="grid-col-4-9 section-border px-0 md:px-12 mb-8 md:mb-0">
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-4">
+<span class="text-archive-gold font-black">I.</span> The Neutrality of the Observer
+                    </h3>
+<div class="font-body-text text-body-text space-y-6 text-on-surface leading-loose">
+<p>
+                            The integrity of the Permanent Archive relies fundamentally upon the absolute neutrality of its curators and automated systems. Observation must be severed from intervention. The primary directive of any recording entity within the RECALL framework is to capture reality as it unfolds, free from editorial bias, emotional prejudice, or algorithmic distortion.
+                        </p>
+<p>
+                            We hold that truth is often complex and contradictory. Therefore, the archive shall not sanitize, interpret, or contextualize events beyond the strict parameters of verified metadata. The observer's lens must remain cold, precise, and indifferent to consequence. To alter a record to serve a narrative is the gravest offense against the Sovereign Code.
+                        </p>
+</div>
+</section>
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-4">
+<span class="text-archive-gold font-black">II.</span> The Permanence of the Record
+                    </h3>
+<div class="font-body-text text-body-text space-y-6 text-on-surface leading-loose">
+<p>
+                            Once an incident is verified and cryptographically sealed within the Archive, it enters a state of digital permanence. It cannot be redacted, erased, or fundamentally altered by any internal or external authority. The right to be forgotten is superseded by the collective right to remember.
+                        </p>
+<blockquote class="font-pull-quote text-pull-quote text-archive-gold italic border-l-4 border-archive-gold pl-6 my-8 py-2">
+                            "A society that erases its failures is condemned to endlessly repeat them in the dark."
+                        </blockquote>
+<p>
+                            In instances where new evidence contradicts an established record, the original artifact remains untouched. Addendums and verification trails shall be appended, creating a transparent lineage of truth rather than a revised history.
+                        </p>
+</div>
+</section>
+<section class="mb-section-gap">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-4">
+<span class="text-archive-gold font-black">III.</span> The Rights of the Witness
+                    </h3>
+<div class="font-body-text text-body-text space-y-6 text-on-surface leading-loose">
+<p>
+                            Those who contribute to the Archive—the Field Reporters, the Citizen Observers, the Whistleblowers—are afforded absolute cryptographic anonymity, unless they explicitly waive this right. The Archive protects the source with the same fervor it protects the data.
+                        </p>
+<p>
+                            However, anonymity does not shield a witness from the rigorous protocols of verification. All submitted material must withstand multi-spectral analysis and consensus validation before achieving Permanent status. The burden of proof remains high to defend the sanctity of the repository against synthetic manipulation and intentional falsehoods.
+                        </p>
+</div>
+</section>
+</article>
+<!-- Signatures & Authority -->
+<aside class="grid-col-10-12 pl-0 md:pl-8 flex flex-col items-center justify-start pt-12 md:pt-0">
+<div class="seal-placeholder mb-8">
+<span class="material-symbols-outlined text-archive-gold text-5xl" data-icon="account_balance" data-weight="fill">account_balance</span>
+</div>
+<div class="text-center space-y-8 w-full">
+<div class="border-b border-primary pb-2 w-3/4 mx-auto">
+<img alt="Signature 1" class="h-16 mx-auto mix-blend-multiply opacity-80" data-alt="A stylized, intricate digital signature appearing as if signed in heavy black ink with a fountain pen, featuring sharp, authoritative loops and a formal aesthetic, set against a pristine white background. High contrast, academic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtQg3LAMBj_bS6MbgmPeDwQVzR3bP_iKeFXCOWUkDE6-D97gL3Nh0whpWMlxWnyUCUhCUPmCz4hhFpItruPkK-N07F0lLwd778qPzQfH5lX6GrGmpi5d5lszB9PBT7kdN0rKlohPldpEeV_2TH6NarXqE5sbz-Q8yIEcJqcZtQTZyppVctKQfQwGewozMmkl5rx6O41Dyas5DCH08z86EFzaQiiHj4Tfww1ftrqBp8xSICLkUh0zLT"/>
+</div>
+<p class="font-caption text-caption uppercase tracking-widest text-secondary-grey">Chief Archivist</p>
+<div class="border-b border-primary pb-2 w-3/4 mx-auto pt-8">
+<img alt="Signature 2" class="h-12 mx-auto mix-blend-multiply opacity-80" data-alt="A different stylized, intricate digital signature, slightly smaller and more angular, appearing as if signed in dark ink, conveying technical precision and authority, set against a pristine white background. High contrast, formal document style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWV0KY1Vl80NWjJss7aChmn0PIoh1Ix-GdYGrvtfrGDzClA5adAnIKYz0qqL00z-oL6JzzRRrXvw49SH_Lput9TGSyW_fdIzC3XA0v4JLhCLS_469J7S85-2QgPAgKM_vwlg1-7Fe-T3N1QMkAcLifcAPt0XvHdIXew1RHaEUt2dLtThxxLaVGLrEhalmLsqv9nIB3c1Kx6S86SdIQt07SSddJhKCaKmnC-TKrWYDUgSv4AvAgfeYy"/>
+</div>
+<p class="font-caption text-caption uppercase tracking-widest text-secondary-grey">Director of Ethics</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Component Execution -->
+<footer class="bg-paper-base flex flex-col items-center justify-center py-12 px-margin-desktop w-full border-t border-border-tan gap-4">
+<div class="font-masthead-logo text-headline-md text-primary uppercase tracking-tighter">
+            RECALL
+        </div>
+<nav class="flex gap-6">
+<a class="font-caption text-caption text-on-surface-variant hover:text-archive-gold transition-colors" href="#">Ethics Code</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-archive-gold transition-colors" href="#">Verification Protocols</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-archive-gold transition-colors" href="#">Archive Access</a>
+<a class="font-caption text-caption text-on-surface-variant hover:text-archive-gold transition-colors" href="#">Legal</a>
+</nav>
+<p class="font-caption text-caption text-on-surface-variant mt-4">
+            © 2024 RECALL PERMANENT ARCHIVE. ALL RIGHTS RESERVED.
+        </p>
+</footer>
+</body></html>

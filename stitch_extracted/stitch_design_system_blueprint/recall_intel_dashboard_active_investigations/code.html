@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECALL Archive - Intel Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Merriweather:ital,wght@0,400;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f5f0e8",
+                        "paper-base": "#F5F0E8",
+                        "surface-container-low": "#f8f3eb",
+                        "error": "#ba1a1a",
+                        "ink-black": "#1A1A1A",
+                        "archive-gold": "#B8960C",
+                        "surface-container-highest": "#e7e2da",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "primary-container": "#1c1b1b",
+                        "cat-legal": "#B45309",
+                        "primary-fixed": "#e5e2e1",
+                        "border-tan": "#DDD8CE",
+                        "tertiary": "#725c00",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#fef9f1",
+                        "surface-white": "#FDFCF9",
+                        "error-container": "#ffdad6",
+                        "background": "#fef9f1",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#b71032",
+                        "on-surface-variant": "#444748",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-variant": "#e7e2da",
+                        "surface-container": "#f2ede5",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#ece8e0",
+                        "on-primary-container": "#858383",
+                        "secondary-grey": "#6B6B6B",
+                        "tertiary-container": "#cba724",
+                        "cat-ground": "#065F46",
+                        "tertiary-fixed": "#ffe082",
+                        "on-secondary-fixed": "#40000a",
+                        "primary": "#000000",
+                        "tertiary-fixed-dim": "#e9c340",
+                        "inverse-surface": "#32302b",
+                        "surface": "#fef9f1",
+                        "on-surface": "#1d1c17",
+                        "cat-statement": "#6D28D9",
+                        "status-verified": "#15803D",
+                        "press-red": "#C41E3A",
+                        "cat-loss": "#7F1D1D",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-secondary-fixed-variant": "#920023",
+                        "surface-dim": "#ded9d2",
+                        "on-tertiary-container": "#4d3e00",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary-fixed": "#ffdad9",
+                        "on-background": "#1d1c17",
+                        "outline": "#747878",
+                        "secondary-container": "#da3148",
+                        "cat-shutdown": "#1D4ED8",
+                        "surface-tint": "#5f5e5e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1200px",
+                        "gutter": "1.5rem",
+                        "section-gap": "4rem",
+                        "margin-mobile": "1rem",
+                        "margin-desktop": "2.5rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "edition-number": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "subheadline": ["Merriweather"],
+                        "pull-quote": ["Playfair Display"],
+                        "body-text": ["Merriweather"],
+                        "caption": ["Inter"],
+                        "masthead-logo": ["Playfair Display"],
+                        "label-tag": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["13px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "edition-number": ["12px", { "lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "subheadline": ["18px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "pull-quote": ["32px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body-text": ["16px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "caption": ["11px", { "lineHeight": "1.4", "letterSpacing": "0.08em", "fontWeight": "500" }],
+                        "masthead-logo": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-tag": ["11px", { "lineHeight": "1", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        body {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-paper-base text-on-surface font-body-text antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-paper-base dark:bg-paper-base border-b border-border-tan flat no shadows w-full z-50">
+<div class="flex flex-col w-full max-w-container-max mx-auto px-margin-desktop py-4">
+<div class="flex items-center justify-between w-full mb-4">
+<a class="font-masthead-logo text-masthead-logo text-primary uppercase" href="#">RECALL</a>
+<div class="flex items-center gap-4">
+<span class="font-edition-number text-edition-number text-secondary-grey uppercase">Vol. 42 // Update 08:45</span>
+<button class="font-label-tag text-label-tag text-primary border border-primary px-4 py-2 hover:bg-primary hover:text-paper-base transition-colors duration-200">Officer Profile</button>
+</div>
+</div>
+<nav class="flex items-center gap-8 w-full">
+<a class="text-secondary-grey font-label-tag text-label-tag uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Situation</a>
+<a class="text-primary font-label-tag text-label-tag border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#">Intel</a>
+<a class="text-secondary-grey font-label-tag text-label-tag uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Logistics</a>
+<a class="text-secondary-grey font-label-tag text-label-tag uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Debrief</a>
+<a class="text-secondary-grey font-label-tag text-label-tag uppercase tracking-widest hover:text-primary transition-colors duration-200" href="#">Archive</a>
+<div class="ml-auto flex items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary transition-colors" data-icon="search">search</span>
+</div>
+</nav>
+</div>
+</header>
+<!-- SideNavBar (Used as an Alert Ticker below header) -->
+<div class="w-full h-8 flex items-center overflow-hidden bg-press-red dark:bg-press-red flat no shadows text-surface-white dark:text-surface-white font-data-mono text-data-mono uppercase">
+<div class="marquee-container">
+<div class="marquee-content flex gap-8">
+<!-- Repeated content for smooth infinite scroll -->
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span> Urgent Alert: Sector 7 breach detected.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="sensors">sensors</span> Operational Update: Comms relay online.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="history_edu">history_edu</span> Causality Shift: Minor variance in Timeline B.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span> Ledger Entry: Funds secured for operation 04.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span> System Status: All primary nodes functional.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="warning">warning</span> Urgent Alert: Sector 7 breach detected.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="sensors">sensors</span> Operational Update: Comms relay online.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="history_edu">history_edu</span> Causality Shift: Minor variance in Timeline B.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span> Ledger Entry: Funds secured for operation 04.</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span> System Status: All primary nodes functional.</span>
+</div>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-8 grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Sidebar: Active Investigations -->
+<aside class="lg:col-span-3 flex flex-col gap-6">
+<div class="border-b border-border-tan pb-2 mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Active Directives</h2>
+</div>
+<!-- Investigation Card -->
+<article class="bg-surface-white border border-border-tan p-4 flex flex-col gap-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<span class="bg-cat-loss text-surface-white font-label-tag text-label-tag px-2 py-1 uppercase tracking-wider">Priority Alpha</span>
+<span class="font-data-mono text-data-mono text-secondary-grey">ID:8472</span>
+</div>
+<h3 class="font-headline-sm text-subheadline text-primary group-hover:text-secondary transition-colors">The Ouroboros Loop Variance</h3>
+<p class="font-body-text text-body-text text-on-surface-variant line-clamp-2">Causality node mismatch detected in sector 4. Temporary stabilizing fields deployed.</p>
+<div class="flex items-center gap-2 mt-2 pt-2 border-t border-border-tan">
+<span class="material-symbols-outlined text-archive-gold text-[16px]" data-icon="clock_loader_40">clock_loader_40</span>
+<span class="font-data-mono text-data-mono text-secondary-grey">T-Minus 04:22:10</span>
+</div>
+</article>
+<article class="bg-surface-white border border-border-tan p-4 flex flex-col gap-3 hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<span class="bg-cat-legal text-surface-white font-label-tag text-label-tag px-2 py-1 uppercase tracking-wider">Review Req</span>
+<span class="font-data-mono text-data-mono text-secondary-grey">ID:9921</span>
+</div>
+<h3 class="font-headline-sm text-subheadline text-primary group-hover:text-secondary transition-colors">Unsanctioned Archival Edit</h3>
+<p class="font-body-text text-body-text text-on-surface-variant line-clamp-2">Discrepancy found in ledger entry 44-B. Awaiting senior officer verification.</p>
+<div class="flex items-center gap-2 mt-2 pt-2 border-t border-border-tan">
+<span class="material-symbols-outlined text-cat-statement text-[16px]" data-icon="gavel">gavel</span>
+<span class="font-data-mono text-data-mono text-secondary-grey">Pending Ruling</span>
+</div>
+</article>
+</aside>
+<!-- Center Canvas: Causality Nodes / Map -->
+<section class="lg:col-span-6 flex flex-col gap-6">
+<div class="border-b border-border-tan pb-2 mb-4 flex justify-between items-end">
+<h1 class="font-headline-lg text-headline-lg text-primary">Causality Node Matrix</h1>
+<span class="font-data-mono text-data-mono text-secondary-grey">Render: Topographical</span>
+</div>
+<div class="w-full h-[500px] border border-border-tan bg-surface-white relative overflow-hidden flex items-center justify-center p-4">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-surface-container opacity-50 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-border-tan to-transparent"></div>
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-80" data-alt="A highly detailed, starkly lit monochromatic satellite map or abstract topographical network view of Berlin. The image follows a strict high-contrast editorial style, using paper-like backgrounds and dark ink-black lines to represent streets or data pathways. Subtle accents of press-red highlight critical 'causality nodes' across the grid. The aesthetic is solemn, precise, and evocative of an old-world intelligence archive merged with modern digital readouts." data-location="Berlin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhTIgPdZdUDSkm-fWNUJ1DJGbK83Alb4z4a7F3_rhuWPi4e0gE3yW7j2byLvbzTqN2VIy9SNZj5nDj8ls3x1WpAi8l23KFQ0v2MEEU9dTNMgmUxX0qfob_ERO0g3npSlNPNAE9oplgq-QJrnqpJmqtm6AqMfgF1CDGtxT6ZYyY1FOuovTORpi6zQR_N9nRIn3cxF1HWy2Lsyt7WsINVr1MjYMSV3yhE6e9LGoyvkYRDHEnEv8_lQHP"/>
+<!-- Overlay UI on Map -->
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<span class="bg-surface-white border border-border-tan px-3 py-1 font-data-mono text-data-mono text-primary shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">LAT: 52.5200</span>
+<span class="bg-surface-white border border-border-tan px-3 py-1 font-data-mono text-data-mono text-primary shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">LNG: 13.4050</span>
+</div>
+</div>
+<!-- Pull Quote Style Insight -->
+<div class="pl-4 border-l-4 border-archive-gold my-4">
+<p class="font-pull-quote text-pull-quote text-primary italic">"The integrity of the timeline depends on the absolute neutrality of the observer."</p>
+<span class="block mt-2 font-caption text-caption text-secondary-grey uppercase tracking-widest">— Archival Directive 01</span>
+</div>
+</section>
+<!-- Right Sidebar: Sector Status -->
+<aside class="lg:col-span-3 flex flex-col gap-6">
+<div class="border-b border-border-tan pb-2 mb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Sector Status</h2>
+</div>
+<div class="bg-surface-white border border-border-tan p-4 flex flex-col gap-4">
+<!-- Status Item -->
+<div class="flex flex-col gap-1 pb-3 border-b border-border-tan last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-data-mono text-data-mono font-bold text-primary">Sector 1: Core</span>
+<span class="material-symbols-outlined text-status-verified" data-icon="verified">verified</span>
+</div>
+<div class="w-full bg-surface-container h-1 mt-1">
+<div class="bg-status-verified h-1 w-full"></div>
+</div>
+<span class="font-caption text-caption text-secondary-grey text-right mt-1">100% Stability</span>
+</div>
+<div class="flex flex-col gap-1 pb-3 border-b border-border-tan last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-data-mono text-data-mono font-bold text-primary">Sector 4: Outlands</span>
+<span class="material-symbols-outlined text-archive-gold" data-icon="warning">warning</span>
+</div>
+<div class="w-full bg-surface-container h-1 mt-1">
+<div class="bg-archive-gold h-1 w-[70%]"></div>
+</div>
+<span class="font-caption text-caption text-secondary-grey text-right mt-1">70% Stability</span>
+</div>
+<div class="flex flex-col gap-1 pb-3 border-b border-border-tan last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-data-mono text-data-mono font-bold text-press-red">Sector 7: Quarantine</span>
+<span class="material-symbols-outlined text-press-red" data-icon="dangerous">dangerous</span>
+</div>
+<div class="w-full bg-surface-container h-1 mt-1">
+<div class="bg-press-red h-1 w-[20%]"></div>
+</div>
+<span class="font-caption text-caption text-press-red text-right mt-1">CRITICAL VARIANCE</span>
+</div>
+</div>
+<!-- Quick Action -->
+<button class="w-full border-2 border-primary bg-surface-white text-primary font-label-tag text-label-tag py-3 uppercase tracking-widest hover:bg-primary hover:text-paper-base transition-colors duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="emergency_recording">emergency_recording</span>
+                Initiate Lockdown
+            </button>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-paper-base dark:bg-paper-base flex flex-col items-center justify-center py-section-gap w-full border-t border-border-tan mt-section-gap">
+<div class="font-headline-sm text-headline-sm text-primary mb-4">RECALL</div>
+<div class="flex gap-6 mb-6">
+<a class="text-secondary-grey font-caption text-caption uppercase tracking-widest hover:text-primary underline" href="#">Terms of Service</a>
+<a class="text-secondary-grey font-caption text-caption uppercase tracking-widest hover:text-primary underline" href="#">Operational Security</a>
+<a class="text-secondary-grey font-caption text-caption uppercase tracking-widest hover:text-primary underline" href="#">Contact Command</a>
+<a class="text-secondary-grey font-caption text-caption uppercase tracking-widest hover:text-primary underline" href="#">Data Ethics</a>
+</div>
+<div class="font-caption text-caption uppercase tracking-widest text-primary dark:text-primary">
+            © RECALL PERMANENT ARCHIVE. ALL TRUTH IS RECORDED.
+        </div>
+</footer>
+</body></html>

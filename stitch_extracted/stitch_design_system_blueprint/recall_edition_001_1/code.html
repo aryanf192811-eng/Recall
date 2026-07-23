@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Days After the Order - RECALL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#e5e2e1",
+                      "tertiary-fixed": "#ffe082",
+                      "paper-base": "#F5F0E8",
+                      "border-tan": "#DDD8CE",
+                      "surface-container-low": "#f8f3eb",
+                      "secondary-grey": "#6B6B6B",
+                      "surface-container": "#f2ede5",
+                      "surface-bright": "#fef9f1",
+                      "surface": "#fef9f1",
+                      "on-secondary-fixed-variant": "#920023",
+                      "secondary-container": "#da3148",
+                      "inverse-on-surface": "#f5f0e8",
+                      "on-secondary-container": "#fffbff",
+                      "on-background": "#1d1c17",
+                      "on-error": "#ffffff",
+                      "status-verified": "#15803D",
+                      "on-tertiary-container": "#4d3e00",
+                      "tertiary-container": "#cba724",
+                      "surface-variant": "#e7e2da",
+                      "cat-statement": "#6D28D9",
+                      "background": "#fef9f1",
+                      "surface-white": "#FDFCF9",
+                      "on-surface": "#1d1c17",
+                      "on-tertiary-fixed": "#231b00",
+                      "cat-legal": "#B45309",
+                      "surface-tint": "#5f5e5e",
+                      "secondary": "#b71032",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1c1b1b",
+                      "on-primary-fixed": "#1c1b1b",
+                      "outline-variant": "#c4c7c7",
+                      "cat-loss": "#7F1D1D",
+                      "on-surface-variant": "#444748",
+                      "on-primary": "#ffffff",
+                      "cat-ground": "#065F46",
+                      "on-primary-fixed-variant": "#474746",
+                      "secondary-fixed": "#ffdad9",
+                      "on-tertiary-fixed-variant": "#564500",
+                      "tertiary": "#725c00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "press-red": "#C41E3A",
+                      "surface-container-high": "#ece8e0",
+                      "primary": "#000000",
+                      "surface-dim": "#ded9d2",
+                      "secondary-fixed-dim": "#ffb3b4",
+                      "inverse-surface": "#32302b",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#c8c6c5",
+                      "ink-black": "#1A1A1A",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "cat-shutdown": "#1D4ED8",
+                      "archive-gold": "#B8960C",
+                      "on-primary-container": "#858383",
+                      "outline": "#747878",
+                      "on-secondary-fixed": "#40000a",
+                      "tertiary-fixed-dim": "#e9c340",
+                      "surface-container-highest": "#e7e2da"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "2.5rem",
+                      "container-max": "1200px",
+                      "section-gap": "4rem",
+                      "margin-mobile": "1rem",
+                      "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                      "edition-number": [
+                              "Inter"
+                      ],
+                      "pull-quote": [
+                              "Playfair Display"
+                      ],
+                      "subheadline": [
+                              "Merriweather"
+                      ],
+                      "masthead-logo": [
+                              "Playfair Display"
+                      ],
+                      "label-tag": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-text": [
+                              "Merriweather"
+                      ]
+              },
+              "fontSize": {
+                      "edition-number": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "pull-quote": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "subheadline": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "masthead-logo": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "label-tag": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-text": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.8",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Base styles mimicking high-quality print */
+        body {
+            background-color: theme('colors.paper-base');
+            color: theme('colors.on-background');
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-low');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.border-tan');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.secondary-grey');
+        }
+
+        .border-r-1 {
+            border-right-width: 1px;
+        }
+        
+        .pull-quote-border {
+            border-left: 4px solid theme('colors.archive-gold');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row overflow-x-hidden antialiased selection:bg-archive-gold selection:text-paper-base">
+<!-- Left Column: Editorial Canvas -->
+<main class="w-full md:w-[55%] flex flex-col min-h-screen border-r border-border-tan relative">
+<!-- Header / Nav Shell Injection -->
+<header class="w-full border-b border-border-tan py-6 px-margin-desktop md:px-12 flex justify-between items-baseline sticky top-0 bg-paper-base/95 backdrop-blur-sm z-50">
+<h1 class="font-edition-number text-edition-number text-secondary-grey uppercase tracking-widest">
+                VOL. 01 // ISSUE 001
+            </h1>
+<div class="flex items-center gap-6">
+<span class="font-label-tag text-label-tag text-status-verified border border-status-verified px-2 py-1 rounded-sm uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                     Verified Record
+                 </span>
+</div>
+</header>
+<!-- Content Area -->
+<article class="flex-1 flex flex-col px-margin-desktop md:px-20 py-16 overflow-y-auto">
+<header class="mb-16 max-w-3xl">
+<h2 class="font-headline-lg text-headline-lg md:text-[56px] md:leading-[1.1] mb-6 text-ink-black">
+                    The Days After the Order
+                </h2>
+<p class="font-subheadline text-subheadline text-secondary-grey max-w-2xl">
+                    An archival reconstruction of the immediate aftermath following Directive 74, analyzing the sudden silence of a megacity.
+                </p>
+<div class="mt-8 flex gap-4 border-t border-border-tan pt-4">
+<span class="font-label-tag text-label-tag text-ink-black bg-surface-variant px-3 py-1.5 uppercase">Archive Record // 2041</span>
+<span class="font-label-tag text-label-tag text-cat-statement bg-surface-variant px-3 py-1.5 uppercase">Testimony</span>
+</div>
+</header>
+<div class="prose max-w-2xl">
+<p class="font-body-text text-body-text mb-8">
+                    The silence was not immediate. It arrived in waves, a slow recession of the mechanical tide that had governed the city for three generations. First, the automated transport grids powered down, their hum replaced by the stark sound of wind moving through the canyons of glass and steel. Then, the localized data networks frayed and severed, turning billions of active nodes into inert artifacts of a bygone era within hours.
+                </p>
+<p class="font-body-text text-body-text mb-12">
+                    For those who lived through it, the defining characteristic of the event wasn't the chaos—though there was plenty of that—but the profound sensory shift. The continuous cognitive load of the networked world simply vanished. 
+                </p>
+<!-- Pull Quote -->
+<blockquote class="pull-quote-border pl-6 my-16 py-2 pr-4 bg-surface-white border-y border-r border-border-tan shadow-sm relative overflow-hidden group">
+<div class="absolute inset-0 bg-archive-gold opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+<span class="material-symbols-outlined absolute top-4 right-4 text-border-tan text-4xl opacity-50 transform -scale-x-100">format_quote</span>
+<p class="font-pull-quote text-pull-quote text-ink-black italic relative z-10 leading-snug">
+                        "The city breathed for the first time in a century..."
+                     </p>
+<footer class="mt-6 font-caption text-caption text-secondary-grey uppercase tracking-widest border-t border-border-tan pt-3 inline-block">
+                        — Extract 401, Subject 88B
+                     </footer>
+</blockquote>
+<p class="font-body-text text-body-text mb-8">
+                    In the ensuing weeks, a new geography emerged. The physical architecture remained, but its meaning had fundamentally altered. Public squares, once merely transit hubs optimized by algorithm, became actual gathering spaces again. The photograph opposite, recovered from a damaged server node in Sector 4, captures one such early congregation.
+                </p>
+<p class="font-body-text text-body-text mb-24">
+                    What we see in these early records is not despair, but a terrible, fragile alertness. Without the constant stream of digital directive, the population was forced into the raw, unmediated present.
+                </p>
+</div>
+</article>
+<!-- Causality Tree Widget (Interactive) -->
+<div class="absolute bottom-0 left-0 w-full bg-surface-white border-t border-border-tan p-6 hidden md:block">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-tag text-label-tag uppercase tracking-widest text-ink-black flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+                    Causality Tree
+                </h3>
+<button class="text-secondary-grey hover:text-ink-black transition-colors" title="Expand Widget">
+<span class="material-symbols-outlined">open_in_full</span>
+</button>
+</div>
+<div class="flex items-start gap-4 font-data-mono text-data-mono text-xs overflow-x-auto pb-2">
+<div class="flex flex-col items-center min-w-max group cursor-pointer">
+<div class="w-3 h-3 rounded-full bg-ink-black mb-2 group-hover:scale-150 transition-transform"></div>
+<span class="text-secondary-grey group-hover:text-ink-black transition-colors">T-0: Directive 74</span>
+</div>
+<div class="h-px w-8 bg-border-tan mt-1.5 shrink-0"></div>
+<div class="flex flex-col items-center min-w-max group cursor-pointer">
+<div class="w-3 h-3 rounded-full bg-cat-loss mb-2 group-hover:scale-150 transition-transform"></div>
+<span class="text-secondary-grey group-hover:text-ink-black transition-colors">T+2: Grid Failure</span>
+</div>
+<div class="h-px w-8 bg-border-tan mt-1.5 shrink-0"></div>
+<div class="flex flex-col items-center min-w-max group cursor-pointer">
+<div class="w-3 h-3 rounded-full border-2 border-archive-gold bg-paper-base mb-2 group-hover:bg-archive-gold transition-colors"></div>
+<span class="text-archive-gold font-bold">T+48: Civic Silence</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Column: Visual Anchor -->
+<aside class="w-full md:w-[45%] h-[50vh] md:h-screen relative bg-ink-black overflow-hidden group">
+<!-- Image Container -->
+<div class="absolute inset-0 w-full h-full transition-transform duration-[20s] ease-linear group-hover:scale-105" data-alt="A cinematic, high-contrast, black and white photograph of a silent protest in an Indian city. Low angle, showing a crowd holding handmade signs with blurred urban architecture in the background. The mood is somber, archival, and powerful. High grain, editorial style, reminiscent of Magnum photography." style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLt-sItD2ZcsZ7GZqO2AaGQJgBosZGqSeXu9adcTvViy-xIo9jqTlHgLN-FhZCna5eUZwMygSqhmbXabmg0K41ti3kiHK0GrfHumMKoDYN-tA_FsXBCVuE-IWhnNkgAkgBGcIup9AL2v6soOGOn0kvqB1zvHHu1ks9pEfwmh3CkBbfAELbL5I44xKqhSMV3kzlpGRpHKiwWamk15uPevF_QjX52bzIlyagKQvqLC_BANyNvJ3LRCSyY1kA'); background-size: cover; background-position: center;">
+</div>
+<!-- Subtle Overlay for text readability if needed, though design implies pure visual -->
+<div class="absolute inset-0 bg-gradient-to-t from-ink-black/80 via-transparent to-transparent opacity-60"></div>
+<!-- Image Metadata / Caption floating on image -->
+<div class="absolute bottom-6 right-6 md:bottom-12 md:right-12 bg-surface-white/90 backdrop-blur-md border border-border-tan p-4 max-w-xs shadow-lg">
+<div class="font-data-mono text-[10px] text-secondary-grey mb-2 uppercase tracking-wider flex justify-between border-b border-border-tan pb-2">
+<span>Asset: IMG-19-B&amp;W</span>
+<span>Loc: Sector 4</span>
+</div>
+<p class="font-caption text-caption text-ink-black mt-2">
+                Silent protest gathering outside the deactivated Central Hub. Estimated crowd size: 4,000. Atmosphere recorded as "tense but contemplative."
+            </p>
+</div>
+<!-- Scanning line effect (Atmospheric interaction) -->
+<div class="absolute top-0 left-0 w-full h-1 bg-archive-gold/30 shadow-[0_0_10px_rgba(184,150,12,0.5)] transform -translate-y-full opacity-0 group-hover:animate-[scan_3s_ease-in-out_infinite]"></div>
+</aside>
+<style>
+        @keyframes scan {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</body></html>

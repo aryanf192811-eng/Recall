@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECALL | THE ARCHIVE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;family=Merriweather:ital,wght@0,400;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Lora:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config from Source of Truth -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#725c00",
+                        "on-secondary": "#ffffff",
+                        "border-tan": "#DDD8CE",
+                        "surface-white": "#FDFCF9",
+                        "on-primary-fixed": "#1c1b1b",
+                        "cat-ground": "#065F46",
+                        "ink-black": "#1A1A1A",
+                        "on-tertiary-container": "#4d3e00",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e7e2da",
+                        "secondary-grey": "#6B6B6B",
+                        "on-tertiary-fixed": "#231b00",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-container": "#da3148",
+                        "outline": "#747878",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f5f0e8",
+                        "cat-statement": "#6D28D9",
+                        "surface-container": "#f2ede5",
+                        "inverse-surface": "#32302b",
+                        "paper-base": "#F5F0E8",
+                        "cat-loss": "#7F1D1D",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-fixed": "#40000a",
+                        "on-background": "#1d1c17",
+                        "tertiary-fixed-dim": "#e9c340",
+                        "outline-variant": "#c4c7c7",
+                        "tertiary-fixed": "#ffe082",
+                        "surface": "#fef9f1",
+                        "primary-fixed": "#e5e2e1",
+                        "press-red": "#C41E3A",
+                        "surface-container-high": "#ece8e0",
+                        "primary-container": "#1c1b1b",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-dim": "#ded9d2",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f8f3eb",
+                        "secondary-fixed-dim": "#ffb3b4",
+                        "primary": "#000000",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "surface-bright": "#fef9f1",
+                        "secondary-fixed": "#ffdad9",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-highest": "#e7e2da",
+                        "on-surface": "#1d1c17",
+                        "status-verified": "#15803D",
+                        "on-primary-container": "#858383",
+                        "on-primary": "#ffffff",
+                        "background": "#fef9f1",
+                        "tertiary-container": "#cba724",
+                        "secondary": "#b71032",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "cat-shutdown": "#1D4ED8",
+                        "on-secondary-fixed-variant": "#920023",
+                        "on-error-container": "#93000a",
+                        "archive-gold": "#B8960C",
+                        "cat-legal": "#B45309"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "1.5rem",
+                        "margin-desktop": "2.5rem",
+                        "section-gap": "4rem",
+                        "margin-mobile": "1rem",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "subheadline": ["Merriweather"],
+                        "data-mono": ["JetBrains Mono"],
+                        "caption": ["Inter"],
+                        "label-tag": ["Inter"],
+                        "edition-number": ["Inter"],
+                        "pull-quote": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "masthead-logo": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-text": ["Merriweather"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F5F0E8;
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .sticky-divider {
+            position: sticky;
+            top: 64px; /* Height of TopAppBar roughly */
+            z-index: 30;
+            backdrop-filter: blur(8px);
+            background-color: rgba(245, 240, 232, 0.95);
+        }
+
+        .incident-card:hover {
+            background-color: #FDFCF9;
+            border-color: #1A1A1A;
+        }
+
+        .search-ledger {
+            caret-color: #B8960C;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="font-body-text overflow-x-hidden">
+<!-- Top Navigation (Shell Implementation) -->
+<header class="bg-paper-base border-b border-border-tan sticky top-0 z-50">
+<div class="flex flex-col w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center justify-between w-full">
+<div class="flex items-center gap-6">
+<span class="font-masthead-logo text-headline-lg uppercase tracking-tighter text-primary">RECALL</span>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">SITUATION</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">INTEL</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">LOGISTICS</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">DEBRIEF</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">ARCHIVE</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Archive Header Section -->
+<section class="mb-16">
+<div class="flex flex-col gap-2">
+<span class="font-edition-number text-edition-number text-archive-gold uppercase mb-2">Internal Clearance Only</span>
+<h1 class="font-masthead-logo text-[48px] md:text-[64px] leading-tight font-black uppercase text-ink-black">THE ARCHIVE</h1>
+<p class="font-[Lora] italic text-subheadline text-secondary-grey">Every incident. Every name. Every chain.</p>
+</div>
+</section>
+<!-- Search & Controls Section -->
+<section class="mb-12 flex flex-col gap-8">
+<!-- Terminal-style Search -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-border-tan rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative flex items-center bg-ink-black text-paper-base rounded-lg p-1 border border-ink-black overflow-hidden">
+<div class="px-4 text-archive-gold font-data-mono">
+<span class="opacity-70">RECALL_QUERY:</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 font-data-mono text-data-mono py-4 uppercase placeholder:text-secondary-grey search-ledger" placeholder="ENTER INCIDENT PARAMETERS OR SUBJECT NAME..." type="text"/>
+<button class="bg-archive-gold text-ink-black px-6 py-4 font-label-tag hover:bg-white transition-colors duration-200 uppercase">
+                        EXECUTE
+                    </button>
+</div>
+</div>
+<!-- View Toggle & Filters -->
+<div class="flex flex-col md:flex-row items-center justify-between border-y border-border-tan py-4 gap-4">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 border border-border-tan">
+<button class="px-6 py-2 font-label-tag text-label-tag bg-ink-black text-paper-base transition-all">LIST</button>
+<button class="px-6 py-2 font-label-tag text-label-tag text-ink-black hover:bg-surface-container-high transition-all">TIMELINE</button>
+<button class="px-6 py-2 font-label-tag text-label-tag text-ink-black hover:bg-surface-container-high transition-all">MAP</button>
+<button class="px-6 py-2 font-label-tag text-label-tag text-ink-black hover:bg-surface-container-high transition-all">WEB</button>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="font-label-tag text-[10px] text-secondary-grey uppercase tracking-widest">Sort by:</span>
+<select class="bg-transparent border-none font-label-tag text-label-tag text-ink-black focus:ring-0 cursor-pointer p-0">
+<option>CHRONOLOGICAL</option>
+<option>SEVERITY</option>
+<option>VERIFICATION</option>
+</select>
+</div>
+<div class="h-4 w-px bg-border-tan"></div>
+<button class="flex items-center gap-2 font-label-tag text-label-tag text-ink-black hover:text-archive-gold transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>ADVANCED FILTERS</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Archive Content Grid (Stacked List) -->
+<section class="flex flex-col pb-section-gap">
+<!-- Date Group 1 -->
+<div class="relative">
+<div class="sticky-divider py-4 border-b border-border-tan mb-6">
+<span class="font-label-tag text-label-tag text-ink-black bg-paper-base px-2 -ml-2">OCTOBER 12, 2024</span>
+</div>
+<div class="flex flex-col gap-[1px] bg-border-tan border border-border-tan overflow-hidden">
+<!-- Incident Card 1 -->
+<div class="incident-card bg-surface-white p-6 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 group">
+<div class="flex flex-col gap-2 flex-grow">
+<div class="flex items-center gap-3">
+<span class="font-data-mono text-[11px] text-archive-gold uppercase tracking-tighter">REF: INC-1042-A</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-status-verified/10 text-status-verified border border-status-verified/20 rounded-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-tag text-[10px] uppercase">Verified Record</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-ink-black group-hover:text-primary transition-colors">Cascading Systemic Failure at Neo-London Node</h3>
+<div class="flex flex-wrap gap-4 mt-2">
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    LONDON, UK [ZONE 04]
+                                </span>
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                                    04:12:09 UTC
+                                </span>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto">
+<div class="flex flex-col items-end gap-1">
+<span class="font-label-tag text-[10px] text-secondary-grey uppercase tracking-widest">Causality Path</span>
+<div class="flex items-center gap-1">
+<div class="w-8 h-[2px] bg-cat-shutdown"></div>
+<div class="w-8 h-[2px] bg-cat-loss"></div>
+<div class="w-8 h-[2px] bg-archive-gold"></div>
+</div>
+</div>
+<button class="p-3 border border-border-tan hover:bg-ink-black hover:text-white transition-all group-hover:border-ink-black">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Incident Card 2 -->
+<div class="incident-card bg-surface-white p-6 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 group">
+<div class="flex flex-col gap-2 flex-grow">
+<div class="flex items-center gap-3">
+<span class="font-data-mono text-[11px] text-archive-gold uppercase tracking-tighter">REF: INC-1041-B</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-archive-gold/10 text-archive-gold border border-archive-gold/20 rounded-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">pending</span>
+<span class="font-label-tag text-[10px] uppercase">Awaiting Protocol 7</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-ink-black group-hover:text-primary transition-colors">Mass Discrepancy in Central Ledger Distribution</h3>
+<div class="flex flex-wrap gap-4 mt-2">
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    GENEVA, CH [CENTRAL HUB]
+                                </span>
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                                    11:55:00 UTC
+                                </span>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto">
+<div class="flex flex-col items-end gap-1">
+<span class="font-label-tag text-[10px] text-secondary-grey uppercase tracking-widest">Causality Path</span>
+<div class="flex items-center gap-1">
+<div class="w-8 h-[2px] bg-cat-legal"></div>
+<div class="w-8 h-[2px] bg-cat-legal"></div>
+<div class="w-8 h-[2px] bg-border-tan"></div>
+</div>
+</div>
+<button class="p-3 border border-border-tan hover:bg-ink-black hover:text-white transition-all group-hover:border-ink-black">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Date Group 2 -->
+<div class="relative mt-8">
+<div class="sticky-divider py-4 border-b border-border-tan mb-6">
+<span class="font-label-tag text-label-tag text-ink-black bg-paper-base px-2 -ml-2">OCTOBER 11, 2024</span>
+</div>
+<div class="flex flex-col gap-[1px] bg-border-tan border border-border-tan overflow-hidden">
+<!-- Incident Card 3 -->
+<div class="incident-card bg-surface-white p-6 transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 group">
+<div class="flex flex-col gap-2 flex-grow">
+<div class="flex items-center gap-3">
+<span class="font-data-mono text-[11px] text-archive-gold uppercase tracking-tighter">REF: INC-0992-K</span>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-press-red/10 text-press-red border border-press-red/20 rounded-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">dangerous</span>
+<span class="font-label-tag text-[10px] uppercase">Unverified / High Priority</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-ink-black group-hover:text-primary transition-colors">Ground Asset Withdrawal: Operation "Ghost Shore"</h3>
+<div class="flex flex-wrap gap-4 mt-2">
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    UNKNOWN COORDINATES [MARITIME]
+                                </span>
+<span class="flex items-center gap-1 text-secondary-grey font-caption text-caption uppercase">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+                                    23:59:59 UTC
+                                </span>
+</div>
+</div>
+<div class="flex items-center gap-8 w-full md:w-auto">
+<div class="flex flex-col items-end gap-1">
+<span class="font-label-tag text-[10px] text-secondary-grey uppercase tracking-widest">Causality Path</span>
+<div class="flex items-center gap-1">
+<div class="w-8 h-[2px] bg-cat-shutdown"></div>
+<div class="w-8 h-[2px] bg-cat-shutdown"></div>
+<div class="w-8 h-[2px] bg-cat-shutdown"></div>
+</div>
+</div>
+<button class="p-3 border border-border-tan hover:bg-ink-black hover:text-white transition-all group-hover:border-ink-black">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Additional Cards can be added following same structure -->
+</div>
+</div>
+<!-- Load More Indicator -->
+<div class="mt-12 flex flex-col items-center">
+<button class="px-12 py-4 border border-ink-black font-label-tag text-label-tag uppercase hover:bg-ink-black hover:text-paper-base transition-all">
+                    Load Older Records (Edition No. 1041)
+                </button>
+<span class="mt-4 font-data-mono text-[10px] text-secondary-grey">END OF VISIBLE DATA STREAM</span>
+</div>
+</section>
+<!-- Causality Tree Micro-Interface (Asymmetric Highlight) -->
+<aside class="mt-section-gap border-t-4 border-ink-black pt-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-4 flex flex-col gap-4">
+<h4 class="font-headline-md text-headline-md uppercase">Causality Tree Logic</h4>
+<p class="font-body-text text-body-text text-secondary-grey leading-relaxed">
+                        Every incident in the Archive is linked via a primary causality chain. No record exists in isolation. Identifying the root node is essential for protocol verification.
+                    </p>
+<div class="p-6 border border-archive-gold bg-archive-gold/5 flex flex-col gap-2">
+<span class="font-label-tag text-label-tag text-archive-gold uppercase">Active Chain Detected</span>
+<span class="font-headline-md text-[20px] text-ink-black">The Silent Fallback Event</span>
+<button class="mt-4 text-left font-label-tag text-label-tag text-ink-black underline uppercase hover:text-archive-gold transition-colors">Trace Origin</button>
+</div>
+</div>
+<div class="md:col-span-8 h-[300px] bg-white border border-border-tan relative overflow-hidden flex items-center justify-center group">
+<!-- Placeholder for visual causality graph -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="relative flex flex-col items-center text-center gap-4 z-10">
+<span class="material-symbols-outlined text-[64px] text-border-tan group-hover:text-archive-gold transition-colors duration-700">hub</span>
+<p class="font-data-mono text-secondary-grey text-label-tag">INITIATE TREE VISUALIZATION ENGINE</p>
+<button class="px-6 py-2 bg-ink-black text-paper-base font-label-tag text-label-tag uppercase">Open Web View</button>
+</div>
+<!-- Aesthetic animated lines using SVG -->
+<svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+<path d="M100,50 Q250,150 400,50 T700,150" fill="none" stroke="#B8960C" stroke-dasharray="4,4" stroke-width="1">
+<animate attributename="stroke-dashoffset" dur="10s" from="100" repeatcount="indefinite" to="0"></animate>
+</path>
+<path d="M50,200 Q300,100 600,250" fill="none" stroke="#1A1A1A" stroke-dasharray="2,2" stroke-width="1">
+<animate attributename="stroke-dashoffset" dur="15s" from="0" repeatcount="indefinite" to="50"></animate>
+</path>
+</svg>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer Section -->
+<footer class="bg-paper-base border-t border-border-tan">
+<div class="flex flex-col items-center justify-center py-12 px-margin-desktop w-full max-w-container-max mx-auto gap-8">
+<div class="flex flex-col items-center gap-2">
+<span class="font-masthead-logo text-headline-md text-primary">RECALL</span>
+<span class="font-edition-number text-edition-number text-secondary-grey tracking-widest uppercase">Permanent Archive v4.2.1</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-archive-gold transition-colors" href="#">Ethics Code</a>
+<a class="text-on-surface-variant font-medium hover:text-archive-gold transition-colors" href="#">Verification Protocols</a>
+<a class="text-on-surface-variant font-medium hover:text-archive-gold transition-colors" href="#">Archive Access</a>
+<a class="text-on-surface-variant font-medium hover:text-archive-gold transition-colors" href="#">Legal</a>
+</div>
+<div class="flex flex-col items-center gap-4 text-center">
+<p class="font-caption text-caption text-secondary-grey max-w-md">
+                    RECALL maintains an uncompromising record of global incidents. Every verified entry is immutable. Tampering with the Archive is a Tier 1 violation.
+                </p>
+<p class="font-caption text-[10px] text-ink-black/40 uppercase tracking-widest">
+                    © 2024 RECALL PERMANENT ARCHIVE. ALL RIGHTS RESERVED.
+                </p>
+</div>
+</div>
+</footer>
+<!-- Interactive Search Interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('input[type="text"]');
+            const searchContainer = searchInput.parentElement;
+
+            searchInput.addEventListener('focus', () => {
+                searchContainer.classList.add('border-archive-gold');
+            });
+
+            searchInput.addEventListener('blur', () => {
+                searchContainer.classList.remove('border-archive-gold');
+            });
+
+            // Micro-interaction: Date dividers stickiness behavior can be enhanced if needed
+            // Currently using CSS sticky.
+        });
+    </script>
+</body></html>

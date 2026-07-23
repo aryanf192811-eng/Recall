@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Incident Report: Mass Discrepancy in Central Ledger Distribution</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Merriweather:ital,wght@0,400;0,600;0,900;1,400&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#e5e2e1",
+                      "tertiary-fixed": "#ffe082",
+                      "paper-base": "#F5F0E8",
+                      "border-tan": "#DDD8CE",
+                      "surface-container-low": "#f8f3eb",
+                      "secondary-grey": "#6B6B6B",
+                      "surface-container": "#f2ede5",
+                      "surface-bright": "#fef9f1",
+                      "surface": "#fef9f1",
+                      "on-secondary-fixed-variant": "#920023",
+                      "secondary-container": "#da3148",
+                      "inverse-on-surface": "#f5f0e8",
+                      "on-secondary-container": "#fffbff",
+                      "on-background": "#1d1c17",
+                      "on-error": "#ffffff",
+                      "status-verified": "#15803D",
+                      "on-tertiary-container": "#4d3e00",
+                      "tertiary-container": "#cba724",
+                      "surface-variant": "#e7e2da",
+                      "cat-statement": "#6D28D9",
+                      "background": "#fef9f1",
+                      "surface-white": "#FDFCF9",
+                      "on-surface": "#1d1c17",
+                      "on-tertiary-fixed": "#231b00",
+                      "cat-legal": "#B45309",
+                      "surface-tint": "#5f5e5e",
+                      "secondary": "#b71032",
+                      "error-container": "#ffdad6",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#1c1b1b",
+                      "on-primary-fixed": "#1c1b1b",
+                      "outline-variant": "#c4c7c7",
+                      "cat-loss": "#7F1D1D",
+                      "on-surface-variant": "#444748",
+                      "on-primary": "#ffffff",
+                      "cat-ground": "#065F46",
+                      "on-primary-fixed-variant": "#474746",
+                      "secondary-fixed": "#ffdad9",
+                      "on-tertiary-fixed-variant": "#564500",
+                      "tertiary": "#725c00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "press-red": "#C41E3A",
+                      "surface-container-high": "#ece8e0",
+                      "primary": "#000000",
+                      "surface-dim": "#ded9d2",
+                      "secondary-fixed-dim": "#ffb3b4",
+                      "inverse-surface": "#32302b",
+                      "on-tertiary": "#ffffff",
+                      "inverse-primary": "#c8c6c5",
+                      "ink-black": "#1A1A1A",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "cat-shutdown": "#1D4ED8",
+                      "archive-gold": "#B8960C",
+                      "on-primary-container": "#858383",
+                      "outline": "#747878",
+                      "on-secondary-fixed": "#40000a",
+                      "tertiary-fixed-dim": "#e9c340",
+                      "surface-container-highest": "#e7e2da"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "2.5rem",
+                      "container-max": "1200px",
+                      "section-gap": "4rem",
+                      "margin-mobile": "1rem",
+                      "gutter": "1.5rem"
+              },
+              "fontFamily": {
+                      "edition-number": [
+                              "Inter"
+                      ],
+                      "pull-quote": [
+                              "Playfair Display"
+                      ],
+                      "subheadline": [
+                              "Merriweather"
+                      ],
+                      "masthead-logo": [
+                              "Playfair Display"
+                      ],
+                      "label-tag": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-text": [
+                              "Merriweather"
+                      ]
+              },
+              "fontSize": {
+                      "edition-number": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "pull-quote": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "subheadline": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "masthead-logo": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "900"
+                              }
+                      ],
+                      "label-tag": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "caption": [
+                              "11px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-text": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.8",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.paper-base'); }
+        .grid-bg {
+            background-image: linear-gradient(theme('colors.border-tan') 1px, transparent 1px),
+            linear-gradient(90deg, theme('colors.border-tan') 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body class="text-ink-black font-body-text antialiased selection:bg-archive-gold selection:text-white min-h-screen flex flex-col">
+<header class="bg-paper-base dark:bg-on-background text-ink-black dark:text-paper-base font-masthead-logo text-masthead-logo font-subheadline text-subheadline docked full-width top-0 border-b border-border-tan dark:border-outline-variant flat no shadows">
+<div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-6 hidden md:flex">
+<a class="text-on-surface-variant font-subheadline hover:text-press-red transition-colors duration-200" href="#">Situation</a>
+<a class="text-on-surface-variant font-subheadline hover:text-press-red transition-colors duration-200" href="#">Intel</a>
+<a class="text-on-surface-variant font-subheadline hover:text-press-red transition-colors duration-200" href="#">Logistics</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 hover:text-press-red transition-colors duration-200" href="#">Debrief</a>
+<a class="text-on-surface-variant font-subheadline hover:text-press-red transition-colors duration-200" href="#">Archive</a>
+</div>
+<div class="font-masthead-logo text-masthead-logo text-primary dark:text-primary-fixed tracking-tighter">RECALL</div>
+<div class="flex items-center gap-4">
+<button class="hover:text-press-red transition-colors duration-200 scale-95 duration-150"><span class="material-symbols-outlined">account_circle</span></button>
+<button class="hover:text-press-red transition-colors duration-200 scale-95 duration-150 md:hidden"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<article class="md:col-span-8 flex flex-col gap-8">
+<header class="border-b border-border-tan pb-6">
+<div class="flex gap-2 mb-4">
+<span class="bg-status-verified text-on-error font-label-tag text-label-tag px-2 py-1 uppercase rounded-sm flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified</span> Verified Record</span>
+<span class="bg-cat-legal text-on-error font-label-tag text-label-tag px-2 py-1 uppercase rounded-sm">Classified Legal</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:text-[56px] md:leading-[1.1] text-ink-black mb-4">Mass Discrepancy in Central Ledger Distribution</h1>
+<p class="font-subheadline text-subheadline text-secondary-grey">An archival deep-dive into the systemic routing failure that destabilized the central registry protocols during the third quarter shift.</p>
+</header>
+<section class="border border-border-tan bg-surface-white p-4">
+<img alt="Historical Document Scan" class="w-full h-auto object-cover filter contrast-125 border border-border-tan shadow-sm" src="https://lh3.googleusercontent.com/aida/AP1WRLtsbKgu-Rn6TowAonKNGEMar-wz85twZMSuuYbZj4nqz2H0e9rW0BwyfEFbB1ZPmWRdGuMWU8vePi_N1Y_2dP51iAKF2Dxtgou-wYYzMj1EHFLh1tc-U7YPrrySTG7n4YBFGT-ftkR46dpeySTr8oMo5OweVwE4mgmv1NPKT-dmbHcKiVWJmTeKWmQPuZcv1klTU2T7rsueZBpfREKNxv-K6QeE1wqYP0T_goEEKD36HDRfvRtGBDeeTbo" style="aspect-ratio: 1.49;"/>
+<div class="mt-4 border-l-4 border-archive-gold pl-4 py-2 bg-surface-container-low">
+<h3 class="font-label-tag text-label-tag uppercase text-archive-gold mb-2 tracking-widest">Transcript Excerpt [Fragment 4A]</h3>
+<p class="font-data-mono text-data-mono text-ink-black italic">"...the recursive nature of the ledger updates created a ghost registry. Distributions mapped to sector 7 were inherently nullified by the primary override command executed at 04:00 hours. This was not a hardware failure, but a fundamental logic recursion loop initiated by a conflicting authorization key..."</p>
+</div>
+</section>
+<section class="mt-8">
+<h2 class="font-headline-md text-headline-md border-b-2 border-ink-black pb-2 mb-6">Causality Tree</h2>
+<div class="flex flex-col gap-4 relative before:absolute before:inset-y-0 before:left-4 before:w-px before:bg-border-tan">
+<div class="relative pl-12">
+<span class="absolute left-[11px] top-1 w-[10px] h-[10px] rounded-full bg-press-red border-2 border-paper-base"></span>
+<h4 class="font-subheadline text-subheadline text-ink-black">02:14 AM - Initial Desync</h4>
+<p class="font-body-text text-body-text text-secondary-grey mt-1">Registry nodes in Sector 4 report a 0.04% timing variance, ignored by automated triage.</p>
+</div>
+<div class="relative pl-12">
+<span class="absolute left-[11px] top-1 w-[10px] h-[10px] rounded-full bg-archive-gold border-2 border-paper-base"></span>
+<h4 class="font-subheadline text-subheadline text-ink-black">03:45 AM - Cascade Event</h4>
+<p class="font-body-text text-body-text text-secondary-grey mt-1">Error compounding leads to a structural ledger fork. Two conflicting truths propagate.</p>
+</div>
+<div class="relative pl-12">
+<span class="absolute left-[11px] top-1 w-[10px] h-[10px] rounded-full bg-ink-black border-2 border-paper-base"></span>
+<h4 class="font-subheadline text-subheadline text-ink-black">08:00 AM - Complete Fracture</h4>
+<p class="font-body-text text-body-text text-secondary-grey mt-1">Distribution channels freeze as verification protocols enter an infinite loop trying to reconcile the fork.</p>
+</div>
+</div>
+</section>
+<section class="mt-8">
+<h2 class="font-headline-md text-headline-md border-b border-border-tan pb-2 mb-6">Entities Involved</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="border border-border-tan bg-surface-white p-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-archive-gold">account_balance</span>
+<h3 class="font-subheadline text-subheadline text-ink-black">Central Registry Bureau</h3>
+</div>
+<p class="font-caption text-caption text-secondary-grey">Primary custodian of the ledger. Responsible for systemic oversight and the eventual protocol override.</p>
+</div>
+<div class="border border-border-tan bg-surface-white p-4">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-cat-shutdown">local_shipping</span>
+<h3 class="font-subheadline text-subheadline text-ink-black">Logistics Division</h3>
+</div>
+<p class="font-caption text-caption text-secondary-grey">Execution arm affected by the discrepancy, leading to severe resource misallocation across sectors.</p>
+</div>
+</div>
+</section>
+</article>
+<aside class="md:col-span-4 flex flex-col gap-6">
+<div class="border-2 border-ink-black bg-surface-white p-6 sticky top-[100px]">
+<h3 class="font-headline-md text-headline-md text-ink-black uppercase tracking-wider mb-6 border-b border-border-tan pb-2">Quick Facts</h3>
+<ul class="flex flex-col gap-4">
+<li class="flex justify-between items-center border-b border-border-tan border-dashed pb-2">
+<span class="font-label-tag text-label-tag text-secondary-grey uppercase tracking-widest">Duration</span>
+<span class="font-data-mono text-data-mono text-ink-black font-bold">14 Hours</span>
+</li>
+<li class="flex justify-between items-center border-b border-border-tan border-dashed pb-2">
+<span class="font-label-tag text-label-tag text-secondary-grey uppercase tracking-widest">Impact</span>
+<span class="font-data-mono text-data-mono text-ink-black font-bold">1.2M Citizens</span>
+</li>
+<li class="flex justify-between items-center border-b border-border-tan border-dashed pb-2">
+<span class="font-label-tag text-label-tag text-secondary-grey uppercase tracking-widest">Sec Level</span>
+<span class="font-data-mono text-data-mono text-press-red font-bold">Tier 1</span>
+</li>
+<li class="flex justify-between items-center pb-2">
+<span class="font-label-tag text-label-tag text-secondary-grey uppercase tracking-widest">Verification</span>
+<span class="font-data-mono text-data-mono text-status-verified font-bold">99.8%</span>
+</li>
+</ul>
+<div class="mt-8">
+<button class="w-full border-2 border-ink-black text-ink-black font-label-tag text-label-tag uppercase py-3 hover:bg-ink-black hover:text-white transition-colors duration-200">Request Full Audit Log</button>
+</div>
+</div>
+<div class="border border-border-tan bg-surface-container-low p-6">
+<h4 class="font-subheadline text-subheadline text-ink-black mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-archive-gold">history</span> Archival Note</h4>
+<p class="font-caption text-caption text-secondary-grey leading-relaxed">This record was unsealed following the sovereign transparency act. Portions of the raw data remain encrypted under Tier 1 restrictions.</p>
+</div>
+</aside>
+</main>
+<footer class="bg-surface-container-highest dark:bg-inverse-surface text-on-surface-variant dark:text-surface-variant font-caption text-caption uppercase tracking-widest w-full border-t border-t border-border-tan flat no shadows w-full px-margin-desktop py-section-gap flex flex-col items-center gap-4 mt-auto">
+<div class="font-masthead-logo text-headline-md text-on-surface mb-2">RECALL</div>
+<div class="flex flex-wrap justify-center gap-6 mb-4">
+<a class="text-on-surface-variant hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Archival Ethics</a>
+<a class="text-on-surface-variant hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Data Provenance</a>
+<a class="text-on-surface-variant hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">System Status</a>
+<a class="text-on-surface-variant hover:text-primary underline opacity-80 hover:opacity-100 transition-opacity" href="#">Security Clearances</a>
+</div>
+<div class="text-secondary-grey">
+            © 2024 RECALL Archival Protocol. Established under the Sovereign Ethics Code.
+        </div>
+</footer>
+</body></html>

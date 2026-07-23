@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RECALL Archive - Incident Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=JetBrains+Mono&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Merriweather:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#e7e2da",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1d1c17",
+                    "primary-container": "#1c1b1b",
+                    "ink-black": "#1A1A1A",
+                    "on-surface-variant": "#444748",
+                    "cat-shutdown": "#1D4ED8",
+                    "cat-ground": "#065F46",
+                    "border-tan": "#DDD8CE",
+                    "surface-container": "#f2ede5",
+                    "on-secondary-container": "#fffbff",
+                    "secondary-fixed": "#ffdad9",
+                    "on-secondary-fixed": "#40000a",
+                    "surface-variant": "#e7e2da",
+                    "tertiary-fixed-dim": "#e9c340",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#32302b",
+                    "on-secondary-fixed-variant": "#920023",
+                    "on-tertiary-fixed-variant": "#564500",
+                    "surface-container-low": "#f8f3eb",
+                    "surface": "#fef9f1",
+                    "secondary-fixed-dim": "#ffb3b4",
+                    "tertiary-container": "#cba724",
+                    "primary-fixed": "#e5e2e1",
+                    "press-red": "#C41E3A",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-white": "#FDFCF9",
+                    "on-tertiary-container": "#4d3e00",
+                    "on-error-container": "#93000a",
+                    "secondary-grey": "#6B6B6B",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#5f5e5e",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "tertiary": "#725c00",
+                    "paper-base": "#F5F0E8",
+                    "inverse-primary": "#c8c6c5",
+                    "cat-loss": "#7F1D1D",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#fef9f1",
+                    "secondary-container": "#da3148",
+                    "status-verified": "#15803D",
+                    "on-tertiary": "#ffffff",
+                    "archive-gold": "#B8960C",
+                    "on-primary": "#ffffff",
+                    "outline": "#747878",
+                    "background": "#fef9f1",
+                    "inverse-on-surface": "#f5f0e8",
+                    "surface-dim": "#ded9d2",
+                    "on-primary-fixed": "#1c1b1b",
+                    "cat-statement": "#6D28D9",
+                    "cat-legal": "#B45309",
+                    "tertiary-fixed": "#ffe082",
+                    "secondary": "#b71032",
+                    "primary": "#000000",
+                    "on-tertiary-fixed": "#231b00",
+                    "on-background": "#1d1c17",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container-high": "#ece8e0",
+                    "on-primary-container": "#858383"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "4rem",
+                    "margin-desktop": "2.5rem",
+                    "gutter": "1.5rem",
+                    "container-max": "1200px",
+                    "margin-mobile": "1rem"
+            },
+            "fontFamily": {
+                    "data-mono": ["JetBrains Mono"],
+                    "label-tag": ["Inter"],
+                    "body-text": ["Merriweather"],
+                    "headline-lg": ["Playfair Display"],
+                    "caption": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "edition-number": ["Inter"],
+                    "subheadline": ["Merriweather"],
+                    "masthead-logo": ["Playfair Display"],
+                    "pull-quote": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "data-mono": ["13px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "label-tag": ["11px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-text": ["16px", {"lineHeight": "1.8", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "caption": ["11px", {"lineHeight": "1.4", "letterSpacing": "0.08em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "edition-number": ["12px", {"lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "500"}],
+                    "subheadline": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                    "masthead-logo": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "pull-quote": ["32px", {"lineHeight": "1.4", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F5F0E8;
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+        }
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+        }
+        .editorial-line {
+            height: 1px;
+            background-color: #DDD8CE;
+        }
+        .vertical-border {
+            border-left: 1px solid #DDD8CE;
+        }
+    </style>
+</head>
+<body class="bg-paper-base">
+<div class="grain-overlay"></div>
+<!-- Header / Masthead -->
+<header class="bg-paper-base border-b border-border-tan h-20 flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<h1 class="font-masthead-logo text-headline-lg text-primary uppercase">RECALL</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8 font-label-tag text-label-tag uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">SITUATION</a>
+<a class="hover:text-primary transition-colors border-b-2 border-primary pb-1 text-primary" href="#">INTEL</a>
+<a class="hover:text-primary transition-colors" href="#">LOGISTICS</a>
+<a class="hover:text-primary transition-colors" href="#">DEBRIEF</a>
+<a class="hover:text-primary transition-colors" href="#">ARCHIVE</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="flex items-center border border-border-tan bg-surface-white px-3 py-1.5">
+<span class="material-symbols-outlined text-[18px] mr-2">search</span>
+<input class="bg-transparent border-none outline-none font-data-mono text-data-mono uppercase placeholder:text-outline-variant w-40" placeholder="QUERY ARCHIVE..." type="text"/>
+</div>
+<button class="font-label-tag text-label-tag uppercase border-2 border-primary px-4 py-2 hover:bg-primary hover:text-white transition-all">LOGIN</button>
+</div>
+</header>
+<!-- Breaking Ticker -->
+<div class="bg-press-red text-surface-white py-1.5 overflow-hidden whitespace-nowrap border-b border-ink-black">
+<div class="inline-block animate-[marquee_30s_linear_infinite] font-data-mono text-[12px] uppercase tracking-tighter">
+            BREAKING: CENTRAL LEDGER DESYNC DETECTED IN SECTOR 4   |   ARCHIVE VERIFICATION LEVEL REACHED TIER 1   |   ALL SYSTEMS NOMINAL AT GENEVA HUB   |   BREAKING: CENTRAL LEDGER DESYNC DETECTED IN SECTOR 4   |   ARCHIVE VERIFICATION LEVEL REACHED TIER 1   |   ALL SYSTEMS NOMINAL AT GENEVA HUB
+        </div>
+</div>
+<main class="max-w-container-max mx-auto px-margin-desktop py-8">
+<!-- Breadcrumb -->
+<div class="mb-10">
+<a class="inline-flex items-center font-label-tag text-label-tag uppercase text-on-surface-variant hover:text-primary group transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px] mr-2 transition-transform group-hover:-translate-x-1">arrow_back</span>
+                BACK TO ARCHIVE
+            </a>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Left Column: Main Content -->
+<article class="flex-1">
+<!-- Header Meta -->
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-cat-legal text-surface-white font-label-tag text-label-tag px-2 py-0.5 uppercase tracking-wider">LEGAL</span>
+<div class="flex items-center text-status-verified font-label-tag text-label-tag gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        VERIFIED
+                    </div>
+</div>
+<h2 class="font-headline-lg text-[42px] leading-tight mb-6 text-ink-black max-w-3xl">
+                    Mass Discrepancy in Central Ledger Distribution
+                </h2>
+<div class="flex flex-wrap items-center gap-x-8 gap-y-4 mb-10 pb-6 border-b border-border-tan">
+<div class="flex flex-col">
+<span class="font-label-tag text-[9px] uppercase text-outline-variant mb-1">Incident Date</span>
+<span class="font-data-mono text-data-mono">OCTOBER 12, 2024</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-tag text-[9px] uppercase text-outline-variant mb-1">Location</span>
+<span class="font-data-mono text-data-mono">GENEVA, CH [CENTRAL HUB]</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-tag text-[9px] uppercase text-outline-variant mb-1">Byline</span>
+<span class="font-data-mono text-data-mono">CHIEF ARCHIVIST REDACTED_ENTITY_04</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-surface-container-high border border-border-tan px-2 py-0.5 font-label-tag text-[10px] text-on-surface-variant">VERIFIED SOURCE</span>
+<span class="bg-surface-container-high border border-border-tan px-2 py-0.5 font-label-tag text-[10px] text-on-surface-variant">HISTORICAL RECORD</span>
+</div>
+</div>
+<!-- Description -->
+<div class="font-body-text text-body-text leading-relaxed text-ink-black space-y-6 mb-12 max-w-4xl">
+<p>
+                        A systematic audit conducted by the Integrity Division has revealed a profound divergence in the Central Ledger's distribution protocols. Preliminary findings suggest that over 1.2 million entries regarding asset allocation were misrouted during the standard midnight reconciliation cycle. The discrepancy, which originated within the Geneva Central Hub, represents the single largest archival mismatch since the 2018 recalibration.
+                    </p>
+<!-- Pull Quote Style -->
+<div class="border-l-4 border-archive-gold pl-6 py-2 my-10">
+<blockquote class="font-pull-quote text-pull-quote italic text-archive-gold">
+                            "The integrity of the record is not merely a matter of data; it is the fabric of our shared history. When the ledger breaks, truth becomes a variable."
+                        </blockquote>
+</div>
+<p>
+                        Despite initial reports of external interference, internal logs indicate a structural failure in the primary distribution node. The Logistics Division has confirmed that the physical verification tokens remained untouched, implying a purely digital fragmentation. The archival team is currently engaged in a deep-state recovery mission to restore the sequential order of the misallocated blocks.
+                    </p>
+</div>
+<!-- Embedded Document Image -->
+<div class="mb-12 border border-border-tan p-2 bg-surface-white">
+<div class="relative group cursor-zoom-in">
+<img class="w-full aspect-video object-cover" data-alt="A vintage, weathered archival document with official red wax seals and handwritten calligraphy. The paper is yellowed and brittle with aged edges, showing ink stamps from the Bombay High Court dated 1887. The lighting is cinematic, highlighting the physical texture and historical weight of the document against a neutral, high-contrast studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-ELVfvF3SBh-vkANQDaa_ww27QKEcX-7LgRfS-ixJzOgoeLDdzxr7AiboXLktN8zaCd9pB_EjsI2rh96St3lA5RxOeKmKLiyZclW7xcNRdjO-LggAYnucSNw6w9Qub6bgUnk00yrfSoezcdJlStZsa1DN8X71QwjyMsrLNxzaJh4SaJmc7eZCjUkN68bzByKwyN2XBI3JDNrsYMx4QjQ-YzQCKrXqE4NxrtPYfsSE9OSF7tPOyrDoAuXH_sQ4_iSRynZZoh-6ZNo"/>
+<div class="absolute inset-0 bg-ink-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+<div class="absolute bottom-4 left-4 bg-ink-black/80 text-white px-3 py-1 font-data-mono text-[10px] uppercase">
+                            FILE_ID: https://lh3.googleusercontent.com/aida/AP1WRLtsbKgu-Rn6TowAonKNGEMar-wz85twZMSuuYbZj4nqz2H0e9rW0BwyfEFbB1ZPmWRdGuMWU8vePi_N1Y_2dP51iAKF2Dxtgou-wYYzMj1EHFLh1tc-U7YPrrySTG7n4YBFGT-ftkR46dpeySTr8oMo5OweVwE4mgmv1NPKT-dmbHcKiVWJmTeKWmQPuZcv1klTU2T7rsueZBpfREKNxv-K6QeE1wqYP0T_goEEKD36HDRfvRtGBDeeTbo // ARCHIVAL_DOCUMENT_SCAN
+                        </div>
+</div>
+<p class="mt-3 font-caption text-caption text-on-surface-variant italic px-2">
+                        Fig 1.1: Recovered physical evidence of legacy ledger systems, showing cross-referencing markers used before the digitalization of the Geneva Hub.
+                    </p>
+</div>
+<!-- Entities Involved -->
+<section class="mb-12">
+<h3 class="font-headline-md text-headline-md mb-6 uppercase tracking-tight">Entities Involved</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-white border border-border-tan p-5 hover:border-ink-black transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-tag text-label-tag text-on-surface-variant uppercase tracking-widest">Authority Unit</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">account_balance</span>
+</div>
+<h4 class="font-subheadline text-subheadline text-primary mb-2">Central Registry Bureau</h4>
+<p class="font-caption text-caption text-on-surface-variant">Primary custodian of the Geneva Hub's digital architecture and reconciliation protocols.</p>
+<a class="inline-block mt-4 font-label-tag text-[10px] uppercase text-primary border-b border-primary pb-0.5 hover:opacity-70" href="#">VIEW RECORD</a>
+</div>
+<div class="bg-surface-white border border-border-tan p-5 hover:border-ink-black transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-tag text-label-tag text-on-surface-variant uppercase tracking-widest">Execution Unit</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">conveyor_belt</span>
+</div>
+<h4 class="font-subheadline text-subheadline text-primary mb-2">Logistics Division</h4>
+<p class="font-caption text-caption text-on-surface-variant">Responsible for the physical and digital movement of assets across the European corridor.</p>
+<a class="inline-block mt-4 font-label-tag text-[10px] uppercase text-primary border-b border-primary pb-0.5 hover:opacity-70" href="#">VIEW RECORD</a>
+</div>
+</div>
+</section>
+</article>
+<!-- Right Sidebar -->
+<aside class="w-full lg:w-[320px] flex flex-col gap-6">
+<!-- Quick Facts Card -->
+<div class="bg-surface-white border border-border-tan p-6">
+<h3 class="font-label-tag text-label-tag uppercase tracking-widest border-b border-border-tan pb-3 mb-6 flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-2">info</span>
+                        Quick Facts
+                    </h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption uppercase text-outline-variant">Duration</span>
+<span class="font-data-mono text-data-mono text-ink-black">14 HOURS</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption uppercase text-outline-variant">Impact</span>
+<span class="font-data-mono text-data-mono text-ink-black">1.2M CITIZENS</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption uppercase text-outline-variant">Security Level</span>
+<span class="font-data-mono text-data-mono text-press-red font-bold">TIER 1</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-caption text-caption uppercase text-outline-variant">Verification</span>
+<span class="font-data-mono text-data-mono text-status-verified">99.8% CERTAIN</span>
+</div>
+</div>
+<button class="w-full mt-10 bg-primary text-surface-white font-label-tag text-label-tag uppercase py-4 hover:bg-on-surface transition-all flex items-center justify-center gap-2 group">
+                        VIEW IN CAUSALITY WEB
+                        <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">timeline</span>
+</button>
+</div>
+<!-- Appeared In -->
+<div class="bg-surface-white border border-border-tan p-6">
+<h3 class="font-label-tag text-label-tag uppercase tracking-widest border-b border-border-tan pb-3 mb-6 flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-2">newspaper</span>
+                        Appeared In
+                    </h3>
+<ul class="space-y-4">
+<li class="group flex items-center justify-between cursor-pointer">
+<div class="flex flex-col">
+<span class="font-subheadline text-[15px] group-hover:text-primary transition-colors">Edition 001</span>
+<span class="font-caption text-[10px] text-outline-variant">THE FOUNDATION RECORD</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-border-tan group-hover:text-primary">open_in_new</span>
+</li>
+<li class="group flex items-center justify-between cursor-pointer">
+<div class="flex flex-col">
+<span class="font-subheadline text-[15px] group-hover:text-primary transition-colors">Edition 042</span>
+<span class="font-caption text-[10px] text-outline-variant">SYSTEMIC FRAGILITY REPORT</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-border-tan group-hover:text-primary">open_in_new</span>
+</li>
+</ul>
+</div>
+<!-- Related Map/Location (Aesthetic Filler) -->
+<div class="bg-paper-base border border-border-tan overflow-hidden">
+<div class="h-48 bg-surface-container grayscale contrast-125 brightness-90 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 10px 10px;"></div>
+<div class="w-full h-full" data-location="Geneva, Switzerland" style="">
+<!-- In a real app, this would be a map component. Representing as a textured block with location text -->
+<div class="flex items-center justify-center h-full flex-col gap-2">
+<span class="material-symbols-outlined text-[40px] text-ink-black opacity-30">location_on</span>
+<span class="font-data-mono text-[10px] uppercase tracking-widest">COORDINATES: 46.2044° N, 6.1432° E</span>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-border-tan bg-surface-white">
+<h4 class="font-label-tag text-[10px] uppercase mb-1">Impact Radius</h4>
+<p class="font-data-mono text-[12px]">GENEVA METROPOLITAN AREA AND SURROUNDING CANTONS.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-paper-base border-t border-border-tan mt-section-gap w-full py-12 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col gap-6">
+<span class="font-masthead-logo text-headline-md text-primary uppercase">RECALL</span>
+<p class="font-caption text-caption text-on-surface-variant max-w-xs leading-relaxed">
+                    Dedicated to the permanent archiving of systemic anomalies and verified historical records.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-label-tag text-label-tag uppercase text-primary font-bold">RESOURCES</span>
+<nav class="flex flex-col gap-2 font-caption text-caption text-on-surface-variant">
+<a class="hover:text-secondary transition-colors uppercase" href="#">Ethics Code</a>
+<a class="hover:text-secondary transition-colors uppercase" href="#">Verification Protocols</a>
+<a class="hover:text-secondary transition-colors uppercase" href="#">Archive Access</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-tag text-label-tag uppercase text-primary font-bold">LEGAL</span>
+<nav class="flex flex-col gap-2 font-caption text-caption text-on-surface-variant">
+<a class="hover:text-secondary transition-colors uppercase" href="#">Terms of Use</a>
+<a class="hover:text-secondary transition-colors uppercase" href="#">Privacy Protocol</a>
+<a class="hover:text-secondary transition-colors uppercase" href="#">Legal</a>
+</nav>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-border-tan flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-caption text-caption text-on-surface-variant uppercase tracking-widest">
+                RECALL ARCHIVE. ALL RIGHTS RESERVED. © 2024
+            </span>
+<span class="font-data-mono text-[10px] text-outline-variant">
+                SYSTEM STATUS: <span class="text-status-verified">NOMINAL</span> // BUILD: V4.1.2-ALPHA
+            </span>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover effects on cards
+        document.querySelectorAll('.bg-surface-white').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
