@@ -80,7 +80,7 @@ export default {
       },
       spacing: {
         'margin-desktop': '2.5rem',
-        'container-max': '1200px',
+        'container-max': '1600px',
         'section-gap': '4rem',
         'margin-mobile': '1rem',
         'gutter': '1.5rem',
@@ -110,7 +110,7 @@ export default {
         'body-text': ['16px', { lineHeight: '1.8', fontWeight: '400' }],
       },
       maxWidth: {
-        'container-max': '1200px',
+        'container-max': '1600px',
       },
       animation: {
         'scan': 'scan 3s ease-in-out infinite',

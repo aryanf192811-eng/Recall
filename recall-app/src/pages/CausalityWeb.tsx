@@ -18,9 +18,9 @@ export default function CausalityWeb() {
       <main className="flex-1 relative w-full h-[calc(100vh-73px)] flex bg-[#F5F0E8]" 
             style={{ backgroundImage: 'radial-gradient(var(--color-border-tan, #DDD8CE) 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
         
-        {/* Left Detail Panel (Floating) */}
+        {/* Detail Panel (Floating bottom on mobile, left on desktop) */}
         {activeIncident && (
-          <aside className="absolute left-4 md:left-margin-desktop top-8 w-[320px] bg-surface-white border border-border-tan shadow-sm z-20 flex flex-col pointer-events-auto">
+          <aside className="absolute bottom-4 left-4 right-4 top-auto md:top-8 md:bottom-auto md:left-margin-desktop md:w-[320px] w-auto bg-surface-white border border-border-tan shadow-xl z-20 flex flex-col pointer-events-auto max-h-[45vh] md:max-h-none overflow-y-auto">
             <div className="p-4 border-b border-border-tan bg-surface-variant/30 flex justify-between items-start">
               <div>
                 <span className="font-label-tag text-label-tag uppercase tracking-widest text-secondary-grey mb-1 block">
