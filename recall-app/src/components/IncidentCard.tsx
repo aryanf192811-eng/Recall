@@ -17,11 +17,11 @@ export default function IncidentCard({ incident, compact = false, image }: Props
       className={`bg-surface-white border border-border-tan flex flex-col hover:border-outline-variant transition-colors cursor-pointer group overflow-hidden`}
     >
       {image && !compact && (
-        <div className="w-full h-48 overflow-hidden relative border-b border-border-tan">
+        <div className="w-full h-48 overflow-hidden relative border-b border-border-tan bg-ink-black">
           <img 
             src={image} 
             alt={incident.title} 
-            className="w-full h-full object-cover grayscale contrast-125 mix-blend-luminosity group-hover:scale-105 transition-transform duration-700" 
+            className="w-full h-full object-cover grayscale contrast-125 mix-blend-luminosity opacity-80 group-hover:scale-105 group-hover:mix-blend-normal group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
           />
           <div className="absolute inset-0 bg-archive-gold opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
         </div>

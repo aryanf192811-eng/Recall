@@ -1,6 +1,35 @@
+import { useState, useEffect } from 'react';
 import Masthead from '../components/Masthead';
 
 export default function LogisticsRegistry() {
+  const [synced, setSynced] = useState(14092);
+  const [inTransit, setInTransit] = useState(402);
+  const [unaccounted, setUnaccounted] = useState(24);
+  const [blocks, setBlocks] = useState([
+    { id: 'BLK-89A2', status: 'CRITICAL', text: 'Timestamp mismatch between physical custody log and ledger hash.', location: 'Sector 4', time: '12 mins ago' },
+    { id: 'BLK-44B1', status: 'REVIEW', text: 'Token weight variance exceeds standard tolerance margins.', location: 'Sector 7', time: '1 hr ago' },
+    { id: 'BLK-99C4', status: 'REVIEW', text: 'Signature missing from secondary auditor.', location: 'Sector 2', time: '3 hrs ago' }
+  ]);
+  const [processing, setProcessing] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date().toISOString().split('T')[1].substring(0, 8));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSynced(prev => prev + Math.floor(Math.random() * 3));
+      setCurrentTime(new Date().toISOString().split('T')[1].substring(0, 8));
+      if (Math.random() > 0.7) setInTransit(prev => Math.max(0, prev + (Math.random() > 0.5 ? 1 : -1)));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleProcess = () => {
+    setProcessing(true);
+    setTimeout(() => {
+      setBlocks(prev => prev.slice(1)); // Process one by one
+      setUnaccounted(prev => Math.max(0, prev - 8));
+      setProcessing(false);
+    }, 800);
+  };
   return (
     <div className="bg-paper-base text-ink-black min-h-screen flex flex-col font-body-text selection:bg-archive-gold selection:text-white">
       <Masthead />
@@ -32,8 +61,8 @@ export default function LogisticsRegistry() {
               </p>
             </div>
             <div className="mt-4 md:mt-0 font-data-mono text-data-mono text-right">
-              <div className="text-ink-black">LAST SYNC: {new Date().toISOString().split('T')[1].substring(0, 8)} UTC</div>
-              <div className="text-press-red">DESYNC RATE: 2.4%</div>
+              <div className="text-ink-black">LAST SYNC: {currentTime} UTC</div>
+              <div className="text-press-red">DESYNC RATE: {(unaccounted / (synced / 100)).toFixed(2)}%</div>
             </div>
           </div>
         </div>
@@ -68,15 +97,15 @@ export default function LogisticsRegistry() {
             <div className="space-y-4 font-data-mono text-data-mono text-ink-black">
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1">
                 <span className="text-secondary-grey">TOTAL LOGGED</span>
-                <span className="font-bold">14,092</span>
+                <span className="font-bold transition-all">{synced.toLocaleString()}</span>
               </div>
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1">
                 <span className="text-secondary-grey">IN TRANSIT</span>
-                <span>402</span>
+                <span className="transition-all">{inTransit}</span>
               </div>
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1 text-press-red font-bold">
                 <span>UNACCOUNTED</span>
-                <span>24</span>
+                <span className="transition-all">{unaccounted}</span>
               </div>
             </div>
           </div>
@@ -87,15 +116,15 @@ export default function LogisticsRegistry() {
             <div className="space-y-4 font-data-mono text-data-mono text-ink-black">
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1">
                 <span className="text-secondary-grey">TOTAL HASHES</span>
-                <span className="font-bold">14,068</span>
+                <span className="font-bold transition-all">{(synced - unaccounted).toLocaleString()}</span>
               </div>
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1">
                 <span className="text-secondary-grey">PENDING COMMIT</span>
-                <span>112</span>
+                <span className="transition-all">{Math.floor(inTransit / 4)}</span>
               </div>
               <div className="flex justify-between border-b border-border-tan border-dashed pb-1 text-cat-shutdown font-bold">
                 <span>ORPHANED</span>
-                <span>8</span>
+                <span className="transition-all">{Math.floor(unaccounted / 3)}</span>
               </div>
             </div>
           </div>
@@ -111,38 +140,39 @@ export default function LogisticsRegistry() {
             <p className="font-caption text-caption text-secondary-grey mt-2">Manual intervention required</p>
           </div>
           
-          <div className="flex-1 overflow-y-auto max-h-[600px]">
-            <div className="p-4 border-b border-border-tan hover:bg-surface-container-low transition-colors cursor-pointer group">
-              <div className="flex justify-between items-start mb-2">
-                <span className="font-data-mono text-data-mono font-bold group-hover:text-primary text-ink-black">BLK-89A2</span>
-                <span className="bg-press-red text-surface-white font-label-tag text-label-tag px-2 py-1">CRITICAL</span>
+          <div className="flex-1 overflow-y-auto max-h-[600px] relative">
+            {blocks.length === 0 ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-secondary-grey p-8">
+                <span className="material-symbols-outlined text-4xl mb-2">check_circle</span>
+                <p className="font-data-mono text-sm uppercase">Queue Cleared</p>
               </div>
-              <p className="font-body-text text-body-text text-[14px] leading-snug mb-2 text-ink-black">Timestamp mismatch between physical custody log and ledger hash.</p>
-              <div className="font-caption text-caption text-secondary-grey uppercase">Sector 4 • 12 mins ago</div>
-            </div>
-
-            <div className="p-4 border-b border-border-tan hover:bg-surface-container-low transition-colors cursor-pointer group">
-              <div className="flex justify-between items-start mb-2">
-                <span className="font-data-mono text-data-mono font-bold group-hover:text-primary text-ink-black">BLK-44B1</span>
-                <span className="bg-archive-gold text-surface-white font-label-tag text-label-tag px-2 py-1">REVIEW</span>
-              </div>
-              <p className="font-body-text text-body-text text-[14px] leading-snug mb-2 text-ink-black">Token weight variance exceeds standard tolerance margins.</p>
-              <div className="font-caption text-caption text-secondary-grey uppercase">Sector 7 • 1 hr ago</div>
-            </div>
-
-            <div className="p-4 border-b border-border-tan hover:bg-surface-container-low transition-colors cursor-pointer group">
-              <div className="flex justify-between items-start mb-2">
-                <span className="font-data-mono text-data-mono font-bold group-hover:text-primary text-ink-black">BLK-99C4</span>
-                <span className="bg-archive-gold text-surface-white font-label-tag text-label-tag px-2 py-1">REVIEW</span>
-              </div>
-              <p className="font-body-text text-body-text text-[14px] leading-snug mb-2 text-ink-black">Signature missing from secondary auditor.</p>
-              <div className="font-caption text-caption text-secondary-grey uppercase">Sector 2 • 3 hrs ago</div>
-            </div>
+            ) : (
+              blocks.map((block) => (
+                <div key={block.id} className="p-4 border-b border-border-tan hover:bg-surface-container-low transition-all duration-300 cursor-pointer group">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-data-mono text-data-mono font-bold group-hover:text-primary text-ink-black">{block.id}</span>
+                    <span className={`text-surface-white font-label-tag text-label-tag px-2 py-1 ${block.status === 'CRITICAL' ? 'bg-press-red' : 'bg-archive-gold'}`}>
+                      {block.status}
+                    </span>
+                  </div>
+                  <p className="font-body-text text-body-text text-[14px] leading-snug mb-2 text-ink-black">{block.text}</p>
+                  <div className="font-caption text-caption text-secondary-grey uppercase">{block.location} • {block.time}</div>
+                </div>
+              ))
+            )}
           </div>
 
           <div className="p-4 border-t border-border-tan bg-paper-base mt-auto">
-            <button className="w-full font-label-tag text-label-tag px-4 py-3 border-2 border-ink-black uppercase hover:bg-ink-black hover:text-paper-base transition-colors duration-200 cursor-pointer">
-              Process Queue
+            <button 
+              onClick={handleProcess}
+              disabled={blocks.length === 0 || processing}
+              className="w-full font-label-tag text-label-tag px-4 py-3 border-2 border-ink-black uppercase hover:bg-ink-black hover:text-paper-base transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            >
+              {processing ? (
+                <><span className="material-symbols-outlined animate-spin text-[16px]">sync</span> Processing...</>
+              ) : (
+                'Process Queue'
+              )}
             </button>
           </div>
         </div>

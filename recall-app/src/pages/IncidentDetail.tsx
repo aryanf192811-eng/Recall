@@ -48,16 +48,13 @@ export default function IncidentDetail() {
           </header>
 
           <section className="border border-border-tan bg-surface-white p-4">
-            <div 
-              className="w-full h-auto border border-border-tan shadow-sm bg-center bg-cover"
-              style={{ 
-                aspectRatio: '1.49', 
-                backgroundColor: '#1d1c17', 
-                backgroundImage: `url('${['/assets/protest.png', '/assets/street.png', '/assets/electronics.png', '/assets/transit_hub.png', '/assets/urban_slum.png', '/assets/historical_document.png', '/assets/biometric_scanner.png', '/assets/evidence_locker.png', '/assets/rain_slicked.png', '/assets/telegraph_key.png', '/assets/brass_tags.png', '/assets/mechanical_ledger.png'][(parseInt(incident.id.replace(/\\D/g, '') || '0')) % 12]}')`,
-                filter: 'grayscale(100%) contrast(125%)',
-                mixBlendMode: 'luminosity'
-              }}
-            ></div>
+            <div className="w-full bg-ink-black border border-border-tan shadow-sm overflow-hidden" style={{ aspectRatio: '1.49' }}>
+              <img 
+                src={['/assets/protest.png', '/assets/street.png', '/assets/electronics.png', '/assets/transit_hub.png', '/assets/urban_slum.png', '/assets/historical_document.png', '/assets/biometric_scanner.png', '/assets/evidence_locker.png', '/assets/rain_slicked.png', '/assets/telegraph_key.png', '/assets/brass_tags.png', '/assets/mechanical_ledger.png'][(parseInt(incident.id.replace(/\D/g, '') || '0')) % 12]}
+                alt="Case File Imagery" 
+                className="w-full h-full object-cover grayscale contrast-125 mix-blend-luminosity opacity-80 hover:opacity-100 hover:grayscale-0 hover:mix-blend-normal transition-all duration-700" 
+              />
+            </div>
             <div className="mt-4 border-l-4 border-archive-gold pl-4 py-2 bg-surface-container-low">
               <h3 className="font-label-tag text-label-tag uppercase text-archive-gold mb-2 tracking-widest">
                 Primary Narrative Account

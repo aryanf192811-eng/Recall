@@ -109,20 +109,16 @@ export default function EthicsCode() {
             
             <div className="text-center space-y-8 w-full">
               <div className="border-b border-primary pb-2 w-3/4 mx-auto">
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/4/41/Signature_of_John_Hancock.svg" 
-                  alt="Signature 1" 
-                  className="h-16 mx-auto mix-blend-multiply opacity-80 filter grayscale" 
-                />
+                <span className="font-headline-lg text-[32px] italic text-ink-black opacity-80" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  A.V. Vance
+                </span>
               </div>
               <p className="font-caption text-caption uppercase tracking-widest text-secondary-grey">Chief Archivist</p>
               
               <div className="border-b border-primary pb-2 w-3/4 mx-auto pt-8">
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Signature_of_George_Washington.svg" 
-                  alt="Signature 2" 
-                  className="h-12 mx-auto mix-blend-multiply opacity-80 filter grayscale" 
-                />
+                <span className="font-headline-lg text-[24px] italic text-ink-black opacity-80" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  E.R. Thorne
+                </span>
               </div>
               <p className="font-caption text-caption uppercase tracking-widest text-secondary-grey">Director of Ethics</p>
             </div>

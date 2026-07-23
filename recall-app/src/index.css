@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Leaflet Overrides for Dark Archive Theme */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+.leaflet-container {
+  font-family: inherit !important;
+}
+
 /* ── Base Typography & Reset ── */
 @layer base {
   html {

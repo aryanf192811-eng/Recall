@@ -1,10 +1,10 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import BreakingTicker from './BreakingTicker';
+import GlobalSearch from './GlobalSearch';
 
 export default function Masthead() {
-  const { state, dispatch } = useApp();
-  const navigate = useNavigate();
+  const { state } = useApp();
   const location = useLocation();
 
   function isActive(path: string) {
@@ -28,26 +28,15 @@ export default function Masthead() {
 
       {/* Top Bar */}
       <div className="flex justify-between items-center px-margin-desktop py-3 w-full max-w-container-max mx-auto">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-4 no-underline group" aria-label="RECALL Home">
-          <img src="/assets/recall_new_logo.png" alt="RECALL Logo" className="h-12 w-auto object-contain mix-blend-multiply" />
+        <Link to="/" className="flex items-center gap-3 no-underline group" aria-label="RECALL Home">
+          <div className="w-10 h-10 bg-ink-black flex items-center justify-center border border-archive-gold group-hover:bg-archive-gold transition-colors duration-300">
+            <span className="material-symbols-outlined text-surface-white">assured_workload</span>
+          </div>
+          <span className="font-masthead-logo text-[32px] md:text-[40px] font-black tracking-[-0.02em] text-ink-black uppercase leading-none mt-1">RECALL</span>
         </Link>
 
         {/* Search */}
-        <div className="hidden md:flex relative w-72">
-          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none">
-            search
-          </span>
-          <input
-            type="text"
-            placeholder="Search incidents, people, locations..."
-            value={state.searchQuery}
-            onChange={(e) => dispatch({ type: 'SET_SEARCH_QUERY', payload: e.target.value })}
-            onFocus={() => { if (location.pathname !== '/archive') navigate('/archive'); }}
-            className="w-full bg-surface-white border border-border-tan py-2.5 pl-10 pr-4 font-label-tag text-[12px] text-on-surface focus:border-primary transition-colors placeholder:text-secondary-grey"
-            aria-label="Search incidents"
-          />
-        </div>
+        <GlobalSearch />
 
         {/* Actions */}
         <div className="flex items-center gap-4">
